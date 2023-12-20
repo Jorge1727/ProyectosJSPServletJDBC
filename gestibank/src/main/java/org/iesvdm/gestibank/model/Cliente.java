@@ -6,6 +6,7 @@ import java.util.Objects;
 /**
  * POJO o BEAN QUE REPRESENTA LA TABLA cliente
  */
+
 public class Cliente {
 
     private int clienteId;

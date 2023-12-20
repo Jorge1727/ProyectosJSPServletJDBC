@@ -70,7 +70,23 @@
       //v--- FIN DEL BUCLE FOR CON HTML INCRUSTADO
     } // for
     %>
+
+
+    <div class="row">
+        <div class="col-md-1 h4">
+            <div class="col-md-8 h4">Buscar Socio</div>
+        </div>
+
+        <div class="col-md-3 align-self-center text-center">
+            <form class="d-inline" method="post" action="BuscarSociosServlet">
+                <input type="search" name="nombreBuscar" placeholder="Nombre">
+                <input class="btn btn-primary"  type="submit" value="Buscar">
+            </form>
+        </div>
+    </div>
 </div>
+
+
 
 <script type="text/javascript" src="js/jquery.js" ></script>
 <script type="text/javascript">
