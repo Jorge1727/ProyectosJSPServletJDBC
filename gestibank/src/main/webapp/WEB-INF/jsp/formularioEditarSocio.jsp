@@ -9,7 +9,7 @@
 <body class="bg-light">
 <div class="container bg-white">
     <div class="row border-bottom">
-        <div class="col-12 h2">Introduzca los datos del nuevo cliente</div>
+        <div class="col-12 h2">Edite los datos del cliente</div>
     </div>
 </div>
 <div class="container bg-light">
@@ -22,16 +22,16 @@
             <div class="col-md-6 align-self-center"><input type="text" name="nombre"/></div>
         </div>
         <div class="row body mt-2">
-            <div class="col-md-6 align-self-center">Estatura</div>
-            <div class="col-md-6 align-self-center"><input type="text" name="estatura"/></div>
+            <div class="col-md-6 align-self-center">Dirección</div>
+            <div class="col-md-6 align-self-center"><input type="text" name="direccion"/></div>
         </div>
         <div class="row body mt-2">
-            <div class="col-md-6 align-self-center">Edad</div>
-            <div class="col-md-6 align-self-center"><input type="text" name="edad"/></div>
+            <div class="col-md-6 align-self-center">Teleéfono</div>
+            <div class="col-md-6 align-self-center"><input type="text" name="telefono"/></div>
         </div>
         <div class="row body mt-2">
-            <div class="col-md-6 align-self-center">Localidad</div>
-            <div class="col-md-6 align-self-center"><input type="text" name="localidad"/></div>
+            <div class="col-md-6 align-self-center">fecha nacimiento</div>
+            <div class="col-md-6 align-self-center"><input type="date" name="fecha_de_nacimiento"/></div>
         </div>
         <div class="row mt-2">
             <div class="col-md-6">

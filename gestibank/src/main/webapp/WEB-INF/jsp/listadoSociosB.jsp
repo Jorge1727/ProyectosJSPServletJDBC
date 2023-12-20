@@ -28,9 +28,9 @@
     <div class="row">
         <div class="col-md-1 h3">ID</div>
         <div class="col-md-4 h3">Nombre</div>
-        <div class="col-md-1 h3">Edad</div>
-        <div class="col-md-1 h3">Estatura</div>
-        <div class="col-md-3 h3">Localidad</div>
+        <div class="col-md-1 h3">Direccion</div>
+        <div class="col-md-1 h3">Teléfono</div>
+        <div class="col-md-3 h3">Fecha de Nacimiento</div>
         <div class="col-md-2 h3 text-center">Operación</div>
     </div>
 </div>
@@ -51,7 +51,7 @@
         </div>
         <div class="col-md-1 align-self-center"><%=cliente.getTelefono() %>
         </div>
-        <div class="col-md-3 align-self-center"><%=cliente.getFechaDeNacimiento()%>3
+        <div class="col-md-3 align-self-center"><%=cliente.getFechaDeNacimiento()%>
 
         </div>
 

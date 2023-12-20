@@ -6,8 +6,11 @@ import org.iesvdm.gestibank.model.Cliente;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.TimeZone;
 
 public class UtilServlet {
 
@@ -73,32 +76,30 @@ public class UtilServlet {
         LocalDate fechaNac = null;
         try {
 
+            nombre = request.getParameter("nombre");
+            direccion = request.getParameter("direccion");
+            telefono = request.getParameter("telefono");
+            //Para las fechas, si es LocalDate usar esto --v
+            String fechaNacString = request.getParameter("fecha_de_nacimiento");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            fechaNac = LocalDate.parse(fechaNacString, formatter);
+            //Si es Date usar esto --v
+            //String fechaNacString = request.getParameter("fecha_de_nacimiento");
+            //SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            //fechaNac = sdf.parse(fechaNacString);
+
+
             //UTILIZO LOS CONTRACTS DE LA CLASE Objects PARA LA VALIDACIÓN
             //             v---- LANZA NullPointerException SI EL PARÁMETRO ES NULL
             Objects.requireNonNull(request.getParameter("nombre"));
-            //CONTRACT nonBlank..
-            //UTILIZO isBlank SOBRE EL PARÁMETRO DE TIPO String PARA CHEQUEAR QUE NO ES UN PARÁMETRO VACÍO "" NI CADENA TODO BLANCOS "    "
-            //          |                                EN EL CASO DE QUE SEA BLANCO LO RECIBIDO, LANZO UNA EXCEPCIÓN PARA INVALIDAR EL PROCESO DE VALIDACIÓN
-            //          -------------------------v                      v---------------------------------------|
+            Objects.requireNonNull(request.getParameter("direccion"));
+            Objects.requireNonNull(telefono);
+            Objects.requireNonNull(fechaNac);
             if (request.getParameter("nombre").isBlank()) throw new RuntimeException("Parámetro vacío o todo espacios blancos.");
-            nombre = request.getParameter("nombre");
-
-            direccion = request.getParameter("direccion");
-
-            telefono = request.getParameter("telefono");
-
-            //UTILIZO LOS CONTRACTS DE LA CLASE Objects PARA LA VALIDACIÓN
-            //             v---- LANZA NullPointerException SI EL PARÁMETRO ES NULL
-            Objects.requireNonNull(request.getParameter("localidad"));
-            //CONTRACT nonBlank
-            //UTILIZO isBlank SOBRE EL PARÁMETRO DE TIPO String PARA CHEQUEAR QUE NO ES UN PARÁMETRO VACÍO "" NI CADENA TODO BLANCOS "    "
-            //          |                                EN EL CASO DE QUE SEA BLANCO LO RECIBIDO, LANZO UNA EXCEPCIÓN PARA INVALIDAR EL PROCESO DE VALIDACIÓN
-            //          -------------------------v                      v---------------------------------------|
+            if (request.getParameter("direccion").isBlank()) throw new RuntimeException("Parámetro vacío o todo espacios blancos.");
+            if (telefono.isBlank()) throw new RuntimeException("Parámetro vacío o todo espacios blancos.");
             if (request.getParameter("fecha_de_nacimiento").isBlank()) throw new RuntimeException("Parámetro vacío o todo espacios blancos.");
 
-            // Utilizar SimpleDateFormat para convertir el String de fecha a LocalDate
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            fechaNac = sdf.parse(request.getParameter("fecha_de_nacimiento")).toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
             return Optional.of(new Cliente(id, nombre, direccion, telefono, fechaNac));
 

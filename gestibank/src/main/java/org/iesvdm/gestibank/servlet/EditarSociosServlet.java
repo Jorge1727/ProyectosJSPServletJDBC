@@ -95,10 +95,10 @@ public class EditarSociosServlet extends HttpServlet {
             //                                V
             request.setAttribute("error", "Error de validación!");
 
-            //POR ÚLTIMO, REDIRECCIÓN INTERNA PARA LA URL /GrabarSocioServlet A formularioSocio.jsp
+            //POR ÚLTIMO, REDIRECCIÓN INTERNA PARA LA URL /GrabarSocioServlet A formularioEditarSocio.jsp
             //                                                                      |
             //                                                                      V
-            dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/formularioSocioB.jsp");
+            dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/formularioEditarSocio.jsp");
         }
 
 
